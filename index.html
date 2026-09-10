@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAUCE HOUSE ｜ 東京発のブランドハウス</title>
+<meta name="description" content="SAUCE HOUSEは東京・六本木を拠点に、CBDブランド「SAUCE HOUSE CBD」とフレグランスブランド「RIO FRAGRANCE」を展開するブランドハウスです。">
+<meta name="theme-color" content="#EE7E3E">
+<link rel="canonical" href="https://saucehouse.jp/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAUCE HOUSE">
+<meta property="og:title" content="SAUCE HOUSE ｜ 東京発のブランドハウス">
+<meta property="og:description" content="CBDとフレグランス、複数のブランドを一つ屋号の下で育てる東京・六本木発のブランドハウス。">
+<meta property="og:url" content="https://saucehouse.jp/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23EE7E3E'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23FFFFFF'%3ES%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --bg:          #F9F9F9;
+    --surface:     #FFFFFF;
+    --surface-alt: #F1EEE9;
+    --ink:         #1C1A17;
+    --ink-soft:    #5C574E;
+    --line:        #E6E2DA;
+    --accent:      #EE7E3E;
+    --accent-deep: #C25F27;
+    --on-accent:   #FFFFFF;
+
+    --f-display: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --f-body:    "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+
+    --header-h: 68px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: 0.02em; }
+  p { margin: 0; }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-deep); outline-offset: 3px; }
+
+  .eyebrow {
+    font-family: var(--f-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--accent-deep);
+  }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+
+  /* ---------------- progress thread ---------------- */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 90;
+  }
+
+  /* ---------------- header ---------------- */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    background: var(--accent);
+    color: var(--on-accent);
+    transition: box-shadow .25s ease;
+  }
+  header.site-header.scrolled { box-shadow: 0 6px 20px -8px rgba(0,0,0,.35); }
+  .header-inner {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wordmark {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: var(--on-accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav.primary-nav { display: flex; gap: 28px; }
+  nav.primary-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--on-accent);
+    opacity: 0.92;
+    padding: 6px 2px;
+    border-bottom: 1px solid transparent;
+    transition: opacity .2s, border-color .2s;
+  }
+  nav.primary-nav a:hover { opacity: 1; border-color: rgba(255,255,255,.6); }
+
+  #nav-toggle { display: none; }
+  .nav-toggle-btn {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255,255,255,.55);
+    color: var(--on-accent);
+    width: 38px; height: 34px;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .nav-toggle-btn svg { width: 18px; height: 18px; }
+
+  @media (max-width: 720px) {
+    nav.primary-nav {
+      position: absolute;
+      top: var(--header-h);
+      left: 0; right: 0;
+      background: var(--accent-deep);
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    nav.primary-nav a { padding: 14px 32px; border-bottom: 1px solid rgba(255,255,255,.15); }
+    #nav-toggle:checked ~ nav.primary-nav { max-height: 320px; }
+    .nav-toggle-btn { display: flex; }
+  }
+
+  /* ---------------- sticky curtain panels ---------------- */
+  .panel {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg);
+  }
+  .panel.raised {
+    background: var(--surface);
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 -24px 60px -30px rgba(20,18,15,.28);
+  }
+  .panel.tinted {
+    background: var(--surface-alt);
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 -24px 60px -30px rgba(20,18,15,.28);
+  }
+  .panel-inner { width: 100%; padding: 96px 0; }
+
+  /* ---- hero ---- */
+  #hero { z-index: 1; }
+  #hero .wrap { display: flex; flex-direction: column; gap: 28px; max-width: 760px; }
+  #hero h1 { font-size: clamp(34px, 5.6vw, 58px); line-height: 1.4; }
+  #hero .lede { font-size: 16.5px; color: var(--ink-soft); max-width: 46ch; }
+  .brand-line { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .chip {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-soft);
+  }
+  .scroll-cue {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+  }
+  .scroll-cue .line { width: 34px; height: 1px; background: var(--ink-soft); animation: cue 2.4s ease-in-out infinite; transform-origin: left; }
+  @keyframes cue { 0%,100% { transform: scaleX(1); opacity: .6; } 50% { transform: scaleX(1.5); opacity: 1; } }
+
+  /* ---- statement ---- */
+  #statement { z-index: 2; }
+  #statement .wrap { max-width: 700px; display: flex; flex-direction: column; gap: 20px; }
+  #statement h2 { font-size: clamp(24px, 3.4vw, 32px); }
+  #statement p.body-text { font-size: 15.5px; color: var(--ink-soft); max-width: 58ch; }
+  .kanji-mark { font-family: var(--f-display); font-size: 84px; line-height: 1; color: var(--accent); opacity: .9; }
+
+  /* ---- brand panels ---- */
+  .brand-panel { z-index: 3; }
+  #rio { z-index: 4; }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .brand-index { font-size: 12px; letter-spacing: .06em; color: var(--accent-deep); font-weight: 700; margin-bottom: 10px; }
+  .brand-panel h2 { font-size: clamp(24px, 3.2vw, 34px); margin-bottom: 16px; }
+  .brand-panel p.body-text { font-size: 15px; color: var(--ink-soft); max-width: 46ch; margin-bottom: 22px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12px;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  .brand-visual {
+    aspect-ratio: 4/5;
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(238,126,62,.35), transparent 55%),
+      linear-gradient(160deg, var(--surface-alt), var(--bg));
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 22px;
+  }
+  .brand-visual span {
+    font-family: var(--f-display);
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: .08em;
+  }
+  @media (max-width: 760px) {
+    .brand-grid { grid-template-columns: 1fr; }
+    .brand-visual { order: -1; aspect-ratio: 16/9; }
+  }
+
+  /* ---- activity / marquee ---- */
+  #activity { z-index: 5; }
+  #activity .wrap { display: flex; flex-direction: column; gap: 44px; }
+  .activity-copy { max-width: 620px; display: flex; flex-direction: column; gap: 16px; }
+  .activity-copy p.body-text { color: var(--ink-soft); font-size: 15px; max-width: 54ch; }
+
+  .marquee {
+    background: var(--accent);
+    color: var(--on-accent);
+    overflow: hidden;
+    padding: 16px 0;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 26s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+  .marquee-track span {
+    font-family: var(--f-display);
+    font-size: 22px;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    padding: 0 28px;
+  }
+  .marquee-track span.dot { font-family: var(--f-body); opacity: .7; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---- company info ---- */
+  #company { z-index: 6; }
+  #company .wrap { max-width: 700px; }
+  #company h2 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 28px; }
+  .info-table { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .info-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .info-row dt { font-size: 13px; color: var(--ink-soft); letter-spacing: .04em; }
+  .info-row dd { margin: 0; font-size: 14.5px; }
+  .info-row a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  @media (max-width: 560px) { .info-row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* ---- contact ---- */
+  #contact { z-index: 7; }
+  #contact .wrap { max-width: 620px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+  #contact h2 { font-size: clamp(24px, 3.4vw, 32px); }
+  #contact p.body-text { color: var(--ink-soft); font-size: 15px; max-width: 48ch; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--on-accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 15px 30px;
+    border-radius: 999px;
+    transition: background .2s, transform .2s;
+  }
+  .btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn svg { width: 15px; height: 15px; }
+
+  /* ---- footer ---- */
+  footer.site-footer {
+    z-index: 8;
+    background: var(--ink);
+    color: #EFECE6;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 -24px 60px -30px rgba(20,18,15,.28);
+  }
+  footer.site-footer .wrap {
+    padding: 64px 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-word { font-family: var(--f-display); font-size: 22px; letter-spacing: .1em; color: #FFFFFF; }
+  .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-nav a { font-size: 13px; text-decoration: none; color: #C9C4BA; }
+  .footer-nav a:hover { color: #FFFFFF; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #8B857A;
+    border-top: 1px solid #33302B;
+    padding-top: 22px;
+  }
+
+  /* reveal on scroll — only takes effect once JS confirms it can restore the content (see script) */
+  html.js-observing .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  html.js-observing .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="#hero">SAUCE HOUSE</a>
+    <input type="checkbox" id="nav-toggle">
+    <label class="nav-toggle-btn" for="nav-toggle" aria-label="メニューを開く">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </label>
+    <nav class="primary-nav">
+      <a href="#cbd">SAUCE HOUSE CBD</a>
+      <a href="#rio">RIO FRAGRANCE</a>
+      <a href="#activity">活動</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="panel" id="hero">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="eyebrow reveal in">SAUCE HOUSE ／ BRAND HOUSE, TOKYO</div>
+        <h1>一枚の帳（とばり）の奥に、<br>いくつものブランドを。</h1>
+        <p class="lede">SAUCE HOUSE は東京・六本木を拠点とする個人事業。CBD とフレグランス、性質の異なる二つの領域を、急がず丁寧に一つ屋号の下で育てています。</p>
+        <div class="brand-line">
+          <span class="chip">SAUCE HOUSE CBD</span>
+          <span class="chip">RIO FRAGRANCE</span>
+          <span class="chip">CBD NATION（六本木）</span>
+        </div>
+        <div class="scroll-cue"><span class="line"></span>SCROLL</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel raised" id="statement">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="kanji-mark reveal">帳</div>
+        <h2 class="reveal">帳がひらくように、ひとつずつ。</h2>
+        <p class="body-text reveal">一枚の生地がゆっくりと下りて、その手前の景色を覆っていく——SAUCE HOUSE のものづくりも同じ姿勢で進めています。原料や製法に近道をせず、仕上がりの質感まで自分たちの基準で見届けること。扱う対象が変わっても、その根っこは変わりません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel raised brand-panel" id="cbd">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="brand-grid">
+          <div>
+            <div class="brand-index reveal">BRAND 01</div>
+            <h2 class="reveal">SAUCE HOUSE CBD</h2>
+            <p class="body-text reveal">高濃度のCBD・カンナビノイド製品を、企画から製造、販売、イベント出展まで一貫して手がけています。既製品の物差しに頼らず、原料の選定から仕上げの質感まで独自の基準で組み立てる、暮らしになじむプロダクトづくり。</p>
+            <div class="tag-row reveal">
+              <span class="tag">製品開発</span>
+              <span class="tag">EC販売</span>
+              <span class="tag">イベント出展</span>
+            </div>
+          </div>
+          <div class="brand-visual reveal"><span>SAUCE HOUSE CBD</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel tinted brand-panel" id="rio">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="brand-grid">
+          <div class="brand-visual reveal" style="order:2"><span>RIO FRAGRANCE</span></div>
+          <div style="order:1">
+            <div class="brand-index reveal">BRAND 02</div>
+            <h2 class="reveal">RIO FRAGRANCE</h2>
+            <p class="body-text reveal">香りの企画からオリジナル製造、オンライン販売までを自社で設計するニッチフレグランスブランド。専属メーカーと組んだ小ロット生産で、既製の香水にはない一本を丁寧に仕上げています。</p>
+            <div class="tag-row reveal">
+              <span class="tag">香り企画</span>
+              <span class="tag">オリジナル製造</span>
+              <span class="tag">オンライン販売</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel raised" id="activity">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="activity-copy">
+          <div class="eyebrow reveal">ACTIVITY</div>
+          <h2 class="reveal">六本木の現場から。</h2>
+          <p class="body-text reveal">香りとCBDの知見を活かし、六本木のCBDバー「CBD NATION」でも活動しています。店頭で得たお客さまの反応や気づきを、ブランドづくりに日々還元しています。</p>
+        </div>
+      </div>
+      <div class="marquee reveal" aria-hidden="true">
+        <div class="marquee-track">
+          <span>SAUCE HOUSE CBD</span><span class="dot">・</span>
+          <span>RIO FRAGRANCE</span><span class="dot">・</span>
+          <span>CBD NATION</span><span class="dot">・</span>
+          <span>SAUCE HOUSE CBD</span><span class="dot">・</span>
+          <span>RIO FRAGRANCE</span><span class="dot">・</span>
+          <span>CBD NATION</span><span class="dot">・</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel raised" id="company">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="eyebrow reveal">COMPANY</div>
+        <h2 class="reveal" style="margin-top:10px;">会社概要</h2>
+        <dl class="info-table reveal">
+          <div class="info-row"><dt>屋号</dt><dd>SAUCE HOUSE</dd></div>
+          <div class="info-row"><dt>代表</dt><dd>細川伊織</dd></div>
+          <div class="info-row"><dt>所在地</dt><dd>東京都港区六本木</dd></div>
+          <div class="info-row"><dt>設立</dt><dd>2025年6月（個人事業主登録）</dd></div>
+          <div class="info-row"><dt>事業内容</dt><dd>CBD・カンナビノイド製品の企画／製造／販売<br>フレグランスブランドの企画／製造／販売</dd></div>
+          <div class="info-row"><dt>連絡先</dt><dd><a href="mailto:info@saucehouse.jp">info@saucehouse.jp</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel raised" id="contact">
+    <div class="panel-inner">
+      <div class="wrap">
+        <div class="eyebrow reveal">CONTACT</div>
+        <h2 class="reveal">お問い合わせ</h2>
+        <p class="body-text reveal">商品に関するお問い合わせ、卸・お取り扱い、取材のご相談などは、下記のメールアドレスまでお気軽にご連絡ください。</p>
+        <a class="btn reveal" href="mailto:info@saucehouse.jp">
+          メールで問い合わせる
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-word">SAUCE HOUSE</div>
+      <nav class="footer-nav">
+        <a href="#cbd">SAUCE HOUSE CBD</a>
+        <a href="#rio">RIO FRAGRANCE</a>
+        <a href="#activity">活動</a>
+        <a href="#company">会社概要</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>東京都港区六本木</span>
+      <span id="year-copy">© 2025–2026 SAUCE HOUSE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll progress
+  var progress = document.getElementById('progress');
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+    progress.style.width = pct + '%';
+    header.classList.toggle('scrolled', (h.scrollTop || document.body.scrollTop) > 4);
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // close mobile nav on link click
+  var navToggle = document.getElementById('nav-toggle');
+  document.querySelectorAll('.primary-nav a').forEach(function (a) {
+    a.addEventListener('click', function () { navToggle.checked = false; });
+  });
+
+  // reveal-on-scroll — progressive enhancement only: the .js-observing class (which is what
+  // lets the CSS hide .reveal elements) is added *after* IntersectionObserver is confirmed
+  // available, so content stays visible by default for any browser that can't run this.
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-observing');
+    var targets = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+
+  // footer year
+  var y = new Date().getFullYear();
+  document.getElementById('year-copy').textContent = '© 2025–' + y + ' SAUCE HOUSE';
+</script>
+
+</body>
+</html>
